@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogs</title>
+    <%- include("./partials/head") %>
+  </head>
+  <body>
+    <%- include("./partials/nav") %> <%- include("./partials/scripts") %>
+    <div class="container">
+      <div class="title" style="margin-top: 20px"><%= blog.title %></div>
+      <div class="blog" style="margin-top: 20px"><%= blog.body %></div>
+      <!-- Comments -->
+      <div class="comment-input">
+        <div class="input-group flex-nowrap" style="margin-top: 20px">
+          <% if (locals.user) { %>
+          <form action="/blogs/comment/<%= blog._id %>" method="post">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Add your comment"
+              aria-label="Username"
+              aria-describedby="addon-wrapping"
+              width="1000px"
+              name="comment"
+              id="comment"
+            />
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          <% } %>
+        </div>
+        <div class="card">
+          <div class="card-body">No comments yet</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("./partials/head") %>
+    <title>Add Blogs</title>
+  </head>
+  <body>
+    <%- include("./partials/scripts") %> <%- include("./partials/nav") %>
+
+    <form
+      method="post"
+      action="/blogs/add-new-blogs"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <input
+          name="coverImage"
+          for="coverImageFile"
+          class="form-control"
+          type="file"
+          id="coverImage"
+        />
+      </div>
+
+      <div class="form-floating">
+        <textarea
+          name="title"
+          class="form-control"
+          id="floatingTextarea"
+        ></textarea>
+        <label for="floatingTextarea">Title</label>
+      </div>
+
+      <div class="form-floating">
+        <textarea
+          class="form-control"
+          name="body"
+          id="floatingTextarea2"
+          style="height: 200px"
+        ></textarea>
+        <label for="floatingTextarea2">Write your blog</label>
+      </div>
+      <button type="submit" btn btn-primary>Submit</button>
+    </form>
+  </body>
+</html>
